@@ -1,0 +1,47 @@
+[[block]]
+block = "net"
+device = "^enp6s0$"
+format = " UP $speed_up DOWN $speed_down "
+
+[[block]]
+block = "disk_space"
+path = "/steam"
+info_type = "available"
+format = " STEAM $available "
+
+[[block]]
+block = "disk_space"
+path = "/home"
+info_type = "available"
+format = " HOME $available "
+
+[[block]]
+block = "disk_space"
+path = "/"
+info_type = "available"
+format = " ROOT $available "
+
+[[block]]
+block = "nvidia_gpu"
+interval = 1
+format = " $icon $utilization $temperature $memory "
+
+[[block]]
+block = "cpu"
+interval = 2
+format = " $icon $barchart ($utilization) "
+format_alt = " $icon $frequency{ $boost|} "
+info_cpu = 20
+warning_cpu = 50
+critical_cpu = 90
+
+[[block]]
+block = "memory"
+interval = 2
+format = " $icon $mem_used.eng(prefix:Mi) / $mem_total.eng(prefix:Mi) ($mem_used_percents.eng(w:2)) "
+
+[[block]]
+block = "time"
+interval = 2
+format = " $timestamp.datetime(f:'%Y-%m-%d %H:%m:%S') "
+
